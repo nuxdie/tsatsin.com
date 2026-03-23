@@ -56,8 +56,14 @@ export default function Home() {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <a
-              href="https://github.com/nuxdie"
+              href="/hire"
               className="rounded-full bg-white px-5 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200"
+            >
+              Work with me
+            </a>
+            <a
+              href="https://github.com/nuxdie"
+              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
             >
               GitHub
             </a>
@@ -144,8 +150,7 @@ export default function Home() {
               searchable systems, workflow automation, and product ideas that need to become real fast.
             </p>
             <p className="mt-4 text-base leading-8 text-zinc-400 md:text-lg">
-              If you want something concrete instead of a six-week PowerPoint detour, the public work
-              above is the best place to start.
+              If you want the buyable version of that, the next page is <a href="/hire" className="text-white underline underline-offset-4 hover:text-zinc-300">here</a>.
             </p>
           </div>
         </div>
