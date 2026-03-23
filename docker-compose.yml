@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    # No port binding here since it will be accessed through Traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app.rule=Host(`portfolio.tsatsin.com`)"
+    environment:
+      - NODE_ENV=production
+      - AUTH_URL=https://portfolio.tsatsin.com
+      - MONGODB_URI=mongodb://db:27017/portfolio-insights
+    env_file: .env
+    networks:
+      - app-network
+    depends_on:
+      - db
+      - traefik
+
+  db:
+    image: ghcr.io/ferretdb/ferretdb:1.21.0
+    restart: on-failure
+    labels:
+      - "traefik.enable=false"
+    environment:
+      - FERRETDB_HANDLER=sqlite
+      - FERRETDB_TELEMETRY=disable
+    volumes:
+      - ./db:/state
+    # ports: # this MUST stay commented out, otherwise it will be exposed to the host
+    #   - 27017:27017 # and that means it might become accessible from the internet without auth
+    networks:
+      - app-network
+
+
+  traefik:
+    image: traefik:2.11.2
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Amsterdam
+    command: 
+      - --api.insecure=true 
+      - --providers.docker 
+      - --accesslog=true
+    labels:
+      - "traefik.enable=false"
+    ports:
+      - "80:80"
+      # WebUI bound to localhost for security.
+      # Access through SSH tunnel:
+      # ssh -L 8080:localhost:8080 basisexamenonline
+      - "127.0.0.1:8080:8080" # Dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - app-network
+
+networks:
+  app-network:
