@@ -6,12 +6,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Artem Tsatsin / nuxdie",
   description:
-    "Practical AI/software tools, internal systems, and fast prototypes by Artem Tsatsin.",
+    "Artem Tsatsin: engineer and engineering manager in Amsterdam (Booking.com, LiveJournal), building with AI agents. Open to full-time roles.",
   metadataBase: new URL("https://tsatsin.com"),
   openGraph: {
     title: "Artem Tsatsin / nuxdie",
     description:
-      "Practical AI/software tools, internal systems, and fast prototypes by Artem Tsatsin.",
+      "Artem Tsatsin: engineer and engineering manager in Amsterdam (Booking.com, LiveJournal), building with AI agents. Open to full-time roles.",
     url: "https://tsatsin.com",
     siteName: "tsatsin.com",
     type: "website",

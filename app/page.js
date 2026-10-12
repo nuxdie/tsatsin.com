@@ -1,5 +1,18 @@
 const projects = [
   {
+    name: "Mochi",
+    href: "https://github.com/nuxdie/xpet-mochi",
+    description:
+      "An always-on personal agent with a Claude Code brain, living on the desktop as a small 3D pixel pig. Wakes on schedules and events, works through narrow tools, and acts only behind explicit consent.",
+  },
+  {
+    name: "BasisExamenOnline",
+    href: "https://basisexamenonline.nl/",
+    linkLabel: "Site ↗",
+    description:
+      "Co-founded product: Dutch civic-integration exam practice with a paid learner app and an admin where teachers author content. Next.js, MongoDB, Stripe.",
+  },
+  {
     name: "ai-pricing",
     href: "https://github.com/nuxdie/ai-pricing",
     description:
@@ -24,6 +37,33 @@ const projects = [
     href: "https://github.com/nuxdie/llm-chats-archive",
     description:
       "Self-hosted archive for AI chat histories with local search, attachments, and provider import support.",
+  },
+];
+
+const experience = [
+  {
+    period: "2023 – now",
+    role: "Co-founder, technical lead",
+    org: "InburgeringsHub · BasisExamenOnline.nl",
+    note: "Built and run the whole product with one partner, from the stack to payments to users.",
+  },
+  {
+    period: "2017 – 2024",
+    role: "Frontend Developer",
+    org: "Booking.com, Amsterdam",
+    note: "Three product teams; designed and ran 50+ A/B experiments with product, design and analytics.",
+  },
+  {
+    period: "2015 – 2017",
+    role: "Engineering Manager / Lead JS Developer",
+    org: "Rambler&Co · LiveJournal, Moscow",
+    note: "Led three teams; ran hiring and mentoring; moved LiveJournal to React and to Git/Docker.",
+  },
+  {
+    period: "2011 – 2015",
+    role: "Node.js and Rails developer",
+    org: "Playflock · Mechnikov Research Institute",
+    note: "Game backends and product analytics; the institute's website.",
   },
 ];
 
@@ -54,12 +94,30 @@ export default function Home() {
             uncertainty with something real.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-8 max-w-3xl rounded-2xl border border-emerald-900/60 bg-emerald-950/30 px-5 py-4 text-sm leading-7 text-emerald-100 md:text-base">
+            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 align-middle" />
+            Open to full-time roles in Amsterdam or remote: engineering management, forward-deployed /
+            solutions engineering, developer relations, and senior frontend / full-stack work.
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="/hire"
+              href="/artem-tsatsin-cv.pdf"
               className="rounded-full bg-white px-5 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200"
             >
-              Work with me
+              Download CV
+            </a>
+            <a
+              href="mailto:artem@tsatsin.com"
+              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
+            >
+              Email me
+            </a>
+            <a
+              href="/hire"
+              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
+            >
+              Freelance
             </a>
             <a
               href="https://github.com/nuxdie"
@@ -97,6 +155,37 @@ export default function Home() {
       <section className="border-t border-zinc-900 bg-zinc-950">
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
           <div className="max-w-2xl">
+            <p className="text-sm uppercase tracking-[0.22em] text-zinc-500">Experience</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+              Fifteen years of shipping for the web.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-zinc-400 md:text-lg">
+              Product teams at scale, managing engineers, and since 2023 building with AI agents every day.
+            </p>
+          </div>
+
+          <ol className="mt-12 space-y-4">
+            {experience.map((item) => (
+              <li
+                key={item.org}
+                className="grid gap-2 rounded-2xl border border-zinc-800 bg-zinc-900/60 px-5 py-4 md:grid-cols-[9rem_1fr] md:gap-6"
+              >
+                <span className="text-sm text-zinc-500">{item.period}</span>
+                <div>
+                  <p className="text-base font-medium text-white">
+                    {item.role} <span className="font-normal text-zinc-400">· {item.org}</span>
+                  </p>
+                  <p className="mt-1 text-sm leading-7 text-zinc-300">{item.note}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-900 bg-zinc-950">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+          <div className="max-w-2xl">
             <p className="text-sm uppercase tracking-[0.22em] text-zinc-500">Selected work</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
               Public projects that show how I build.
@@ -118,7 +207,7 @@ export default function Home() {
                     href={project.href}
                     className="text-sm text-zinc-400 transition hover:text-zinc-200"
                   >
-                    GitHub ↗
+                    {project.linkLabel || "GitHub ↗"}
                   </a>
                 </div>
                 <p className="mt-4 text-sm leading-7 text-zinc-300">{project.description}</p>
@@ -150,7 +239,9 @@ export default function Home() {
               searchable systems, workflow automation, and product ideas that need to become real fast.
             </p>
             <p className="mt-4 text-base leading-8 text-zinc-400 md:text-lg">
-              If you want the buyable version of that, the next page is <a href="/hire" className="text-white underline underline-offset-4 hover:text-zinc-300">here</a>.
+              Hiring? <a href="/artem-tsatsin-cv.pdf" className="text-white underline underline-offset-4 hover:text-zinc-300">Here is my CV</a>, or write to{" "}
+              <a href="mailto:artem@tsatsin.com" className="text-white underline underline-offset-4 hover:text-zinc-300">artem@tsatsin.com</a>.
+              For a short freelance project, the offer is <a href="/hire" className="text-white underline underline-offset-4 hover:text-zinc-300">here</a>.
             </p>
           </div>
         </div>
