@@ -19,7 +19,7 @@ const roles = [
   },
 ];
 
-const projects = [
+const shipped = [
   {
     name: "BasisExamenOnline",
     href: "https://basisexamenonline.nl/",
@@ -30,7 +30,19 @@ const projects = [
     name: "ai-pricing",
     href: "https://ai.tsatsin.com/",
     link: "Open the tool",
-    note: "Compares AI models on price, speed and benchmarks. I built it because I needed it to pick models for real work.",
+    note: "Compares AI models on price, speed and benchmarks. I built it to pick models for real work; 22 people starred it.",
+  },
+  {
+    name: "Win AI Buddy",
+    href: "https://github.com/nuxdie/win-ai-buddy-for-gaming",
+    link: "Download and demo",
+    note: "A Windows app that keeps a live voice line to Gemini while you play, sees your screen if you let it, and answers in an in-game overlay.",
+  },
+  {
+    name: "json-like-parse",
+    href: "https://github.com/nuxdie/json-like-parse",
+    link: "Code on GitHub",
+    note: "An npm package that pulls usable JSON out of whatever an LLM actually returned. Small, boring, saves hours.",
   },
   {
     name: "tg-archive",
@@ -38,17 +50,23 @@ const projects = [
     link: "Code on GitHub",
     note: "My whole Telegram history, self-hosted and searchable, with a sync agent that keeps it current.",
   },
+];
+
+const forFun = [
   {
-    name: "llm-chats-archive",
-    href: "https://github.com/nuxdie/llm-chats-archive",
-    link: "Code on GitHub",
-    note: "Years of conversations with ChatGPT, Claude and friends in one local, searchable place.",
+    name: "NFS Revival",
+    href: "https://github.com/nuxdie/nfs3-godot",
+    note: "The racing games I grew up with, rebuilt in Godot 4. All-new code that loads tracks and cars from your own old Need for Speed install.",
   },
   {
-    name: "json-like-parse",
-    href: "https://github.com/nuxdie/json-like-parse",
-    link: "Code on GitHub",
-    note: "Pulls usable JSON out of whatever an LLM actually returned. Small, boring, saves hours.",
+    name: "pig",
+    href: "https://nuxdie.github.io/pig/",
+    note: "A dice game about knowing when to stop, grown into a seven-opponent circuit with a card draft. Playable in the browser.",
+  },
+  {
+    name: "baritone-ts",
+    href: "https://github.com/nuxdie/baritone-ts",
+    note: "Baritone-grade Minecraft pathfinding for Mineflayer bots, in TypeScript: twenty movement types, parkour included.",
   },
 ];
 
@@ -94,7 +112,7 @@ const elsewhere = [
   { label: "GitHub", href: "https://github.com/nuxdie" },
   { label: "YouTube", href: "https://www.youtube.com/@artemops" },
   { label: "Blog", href: "https://blog.tsatsin.com/" },
-  { label: "Podcast", href: "https://artempodcast.com/" },
+  { label: "Podcast", href: "https://podcast.tsatsin.com/" },
   { label: "Freelance work", href: "/hire" },
 ];
 
@@ -215,17 +233,68 @@ export default function Home() {
           </div>
         </article>
 
-        <ul className="mt-14 divide-y-2 divide-ink/10 border-y-2 border-ink/10">
-          {projects.map((p) => (
+        <h3 className="mt-16 font-display text-2xl font-bold">Shipped and in use</h3>
+        <ul className="mt-4 divide-y-2 divide-ink/10 border-y-2 border-ink/10">
+          {shipped.map((p) => (
             <li key={p.name} className="grid gap-2 py-6 md:grid-cols-[14rem_1fr_auto] md:items-baseline md:gap-8">
-              <h3 className="font-display text-xl font-bold">{p.name}</h3>
+              <h4 className="font-display text-xl font-bold">{p.name}</h4>
               <p className="max-w-xl leading-7 text-slate">{p.note}</p>
-              <a
-                href={p.href}
-                className="font-semibold text-skydeep underline decoration-2 underline-offset-4 hover:text-ink"
-              >
+              <a href={p.href} className="font-semibold text-skydeep underline decoration-2 underline-offset-4 hover:text-ink">
                 {p.link}
               </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="mt-20 font-display text-2xl font-bold">Built for the joy of it</h3>
+        <p className="mt-2 max-w-2xl leading-7 text-slate">
+          Nobody asked for these. They&apos;re how I find out what a technology can really do.
+        </p>
+        <div className="mt-8 grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:grid-rows-[auto_auto]">
+          <a
+            href="https://github.com/nuxdie/clock_v3_cpp"
+            className="group flex flex-col overflow-hidden rounded-[24px] border-2 border-ink bg-ink text-chalk md:row-span-2"
+          >
+            <img src="/work/clock.jpg" alt="The clock at dawn and during a night storm" width="512" height="600" className="w-full" />
+            <div className="p-6">
+              <p className="font-display text-xl font-bold group-hover:underline">A clock that looks out the window</p>
+              <p className="mt-2 leading-7 text-chalk/75">
+                A Raspberry Pi clock whose painted landscape follows the real sun, moon and weather. Rain slants in the wind, the town lights up at night.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://github.com/nuxdie/voxel-viewer"
+            className="group overflow-hidden rounded-[24px] border-2 border-ink bg-white"
+          >
+            <img src="/work/voxel.jpg" alt="A voxel island rendered in watercolor mode" width="1000" height="640" className="aspect-[25/16] w-full object-cover" />
+            <div className="p-6">
+              <p className="font-display text-xl font-bold group-hover:underline">Voxels, but watercolor</p>
+              <p className="mt-2 leading-7 text-slate">
+                An OpenGL viewer in C++ for MagicaVoxel models and Minecraft schematics, with four render modes. Plus a Minecraft terrain generator to feed it.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://www.youtube.com/watch?v=JcQZouBjsiA"
+            className="group grid overflow-hidden rounded-[24px] border-2 border-ink bg-sky sm:grid-cols-[11rem_1fr]"
+          >
+            <img src="/work/volume-gamma.jpg" alt="Volume Gamma album cover: a pixel grass block in the sky" width="640" height="640" className="aspect-square w-full object-cover sm:h-full" />
+            <div className="p-6">
+              <p className="font-display text-xl font-bold group-hover:underline">Volume Gamma</p>
+              <p className="mt-2 leading-7">
+                Can Claude compose music, from code, that&apos;s worth listening to? A week of experiments later: a twelve-track Minecraft-style album, on YouTube.
+              </p>
+            </div>
+          </a>
+        </div>
+        <ul className="mt-8 grid gap-6 md:grid-cols-3">
+          {forFun.map((p) => (
+            <li key={p.name}>
+              <a href={p.href} className="font-display text-lg font-bold underline decoration-pig decoration-[3px] underline-offset-4 hover:decoration-ink">
+                {p.name}
+              </a>
+              <p className="mt-2 leading-7 text-slate">{p.note}</p>
             </li>
           ))}
         </ul>
