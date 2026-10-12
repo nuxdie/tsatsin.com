@@ -1,251 +1,302 @@
-const projects = [
+import Mochi from "./Mochi";
+
+const roles = [
   {
-    name: "Mochi",
-    href: "https://github.com/nuxdie/xpet-mochi",
-    description:
-      "An always-on personal agent with a Claude Code brain, living on the desktop as a small 3D pixel pig. Wakes on schedules and events, works through narrow tools, and acts only behind explicit consent.",
+    title: "Engineering manager",
+    note: "I've led three teams at once, hired and mentored, and moved an organisation onto new tools by explaining why, not by forcing it.",
   },
+  {
+    title: "Forward-deployed or solutions engineer",
+    note: "I bring AI tools into real work and make them boring enough to trust: narrow permissions, clear logs, a human who says yes.",
+  },
+  {
+    title: "Developer relations",
+    note: "I co-founded a frontend podcast, make videos about building with AI, and like nothing more than showing how a thing actually works.",
+  },
+  {
+    title: "Senior frontend or full-stack",
+    note: "TypeScript, React, Next.js, Node. I still enjoy shipping it with my own hands.",
+  },
+];
+
+const projects = [
   {
     name: "BasisExamenOnline",
     href: "https://basisexamenonline.nl/",
-    linkLabel: "Site ↗",
-    description:
-      "Co-founded product: Dutch civic-integration exam practice with a paid learner app and an admin where teachers author content. Next.js, MongoDB, Stripe.",
+    link: "Visit the site",
+    note: "Exam practice for people moving to the Netherlands. Co-founded and built end to end: learner app, teacher admin, payments.",
   },
   {
     name: "ai-pricing",
-    href: "https://github.com/nuxdie/ai-pricing",
-    description:
-      "Live public tool for comparing AI model pricing, context windows, speed, and benchmark performance.",
-    live: "https://ai.tsatsin.com/",
+    href: "https://ai.tsatsin.com/",
+    link: "Open the tool",
+    note: "Compares AI models on price, speed and benchmarks. I built it because I needed it to pick models for real work.",
   },
   {
     name: "tg-archive",
     href: "https://github.com/nuxdie/tg-archive",
-    description:
-      "Self-hosted Telegram archive with sync agent, searchable web UI, media storage, and history tracking.",
-  },
-  {
-    name: "json-like-parse",
-    href: "https://github.com/nuxdie/json-like-parse",
-    description:
-      "Developer utility for extracting and parsing JSON-like text from messy strings.",
-    live: "https://www.npmjs.com/package/json-like-parse",
+    link: "Code on GitHub",
+    note: "My whole Telegram history, self-hosted and searchable, with a sync agent that keeps it current.",
   },
   {
     name: "llm-chats-archive",
     href: "https://github.com/nuxdie/llm-chats-archive",
-    description:
-      "Self-hosted archive for AI chat histories with local search, attachments, and provider import support.",
+    link: "Code on GitHub",
+    note: "Years of conversations with ChatGPT, Claude and friends in one local, searchable place.",
+  },
+  {
+    name: "json-like-parse",
+    href: "https://github.com/nuxdie/json-like-parse",
+    link: "Code on GitHub",
+    note: "Pulls usable JSON out of whatever an LLM actually returned. Small, boring, saves hours.",
   },
 ];
 
-const experience = [
+const timeline = [
   {
-    period: "2023 – now",
-    role: "Co-founder, technical lead",
-    org: "InburgeringsHub · BasisExamenOnline.nl",
-    note: "Built and run the whole product with one partner, from the stack to payments to users.",
+    years: "2023 – now",
+    what: "Co-founder and technical lead, InburgeringsHub",
+    note: "BasisExamenOnline with one partner: the product, the stack, Stripe, the users. Also the part I underrated as an engineer: selling it.",
   },
   {
-    period: "2017 – 2024",
-    role: "Frontend Developer",
-    org: "Booking.com, Amsterdam",
-    note: "Three product teams; designed and ran 50+ A/B experiments with product, design and analytics.",
+    years: "2017 – 2024",
+    what: "Frontend developer, Booking.com",
+    note: "Three product teams in Amsterdam. 50+ A/B experiments with product, design and analytics, shipped and watched in production.",
   },
   {
-    period: "2015 – 2017",
-    role: "Engineering Manager / Lead JS Developer",
-    org: "Rambler&Co · LiveJournal, Moscow",
-    note: "Led three teams; ran hiring and mentoring; moved LiveJournal to React and to Git/Docker.",
+    years: "2015 – 2017",
+    what: "Engineering manager, Rambler&Co and LiveJournal",
+    note: "Three teams in Moscow. Hiring, weekly mentoring, in-house courses, the move to React and from SVN to Git and Docker.",
   },
   {
-    period: "2011 – 2015",
-    role: "Node.js and Rails developer",
-    org: "Playflock · Mechnikov Research Institute",
-    note: "Game backends and product analytics; the institute's website.",
+    years: "2011 – 2015",
+    what: "Developer, Playflock and the Mechnikov institute",
+    note: "Node.js backends for social games, and a vaccine research institute's website in Rails.",
   },
 ];
 
-const capabilities = [
-  "AI-assisted workflows and internal tools",
-  "Fast product and feature prototypes",
-  "Self-hosted search, archive, and data systems",
-  "Frontend, backend, infra, and glue code",
+const beliefs = [
+  {
+    title: "Find out for yourself",
+    note: "I'd rather run the experiment than read the benchmark. Fifty A/B tests teach you how often the obvious answer is wrong.",
+  },
+  {
+    title: "Build the first useful version",
+    note: "Clarify the problem, ship something real, then decide. A working thing ends more arguments than a slide deck.",
+  },
+  {
+    title: "Nothing should be magic",
+    note: "If I build it, you'll know how it works and why. That goes double for AI.",
+  },
+];
+
+const elsewhere = [
+  { label: "GitHub", href: "https://github.com/nuxdie" },
+  { label: "YouTube", href: "https://www.youtube.com/@artemops" },
+  { label: "Blog", href: "https://blog.tsatsin.com/" },
+  { label: "Podcast", href: "https://artempodcast.com/" },
+  { label: "Freelance work", href: "/hire" },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100">
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-20 md:px-10">
-        <div className="max-w-4xl">
-          <p className="mb-5 text-sm uppercase tracking-[0.22em] text-zinc-500">
-            Artem Tsatsin / nuxdie
+    <main className="min-h-screen overflow-x-hidden bg-chalk text-ink">
+      {/* Hero: who, what, and the one thing to click. */}
+      <section className="mx-auto grid max-w-6xl items-center gap-16 px-6 pb-24 pt-16 md:grid-cols-[1.15fr_0.85fr] md:px-10 md:pt-24">
+        <div>
+          <p className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-white px-4 py-1.5 text-sm font-semibold">
+            <span className="h-2.5 w-2.5 rounded-[3px] bg-grass" aria-hidden="true" />
+            Open to full-time roles, Amsterdam or remote
           </p>
-          <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.05]">
-            Practical AI/software tools, internal systems, and fast prototypes.
+          <h1 className="mt-8 font-display text-[clamp(2.9rem,7vw,5.6rem)] font-extrabold leading-[0.95] tracking-[-0.035em]">
+            Something from nothing, on purpose.
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300 md:text-xl">
-            I build useful software for messy, vague, or scattered problems — especially where AI,
-            automation, search, self-hosting, and product-shaped glue code intersect.
+          <p className="mt-8 max-w-[34rem] text-lg leading-8 text-slate md:text-xl md:leading-9">
+            I&apos;m Artem. I&apos;ve been shipping software for the web for fifteen years: seven at Booking.com, two
+            running three teams at LiveJournal, and lately a lot of building with AI agents. Including a pig that
+            lives on my desktop.
           </p>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-400 md:text-lg">
-            The pattern is simple: clarify the problem, build the first useful version fast, and reduce
-            uncertainty with something real.
-          </p>
-
-          <div className="mt-8 max-w-3xl rounded-2xl border border-emerald-900/60 bg-emerald-950/30 px-5 py-4 text-sm leading-7 text-emerald-100 md:text-base">
-            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 align-middle" />
-            Open to full-time roles in Amsterdam or remote: engineering management, forward-deployed /
-            solutions engineering, developer relations, and senior frontend / full-stack work.
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="/artem-tsatsin-cv.pdf"
-              className="rounded-full bg-white px-5 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200"
+              className="rounded-xl border-2 border-ink bg-ink px-6 py-3.5 font-display text-base font-bold text-white shadow-[4px_4px_0_#8CCBE6] transition-transform hover:-translate-y-0.5"
             >
-              Download CV
+              Download my CV
             </a>
             <a
               href="mailto:artem@tsatsin.com"
-              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
+              className="rounded-xl border-2 border-ink bg-white px-6 py-3.5 font-display text-base font-bold text-ink transition-transform hover:-translate-y-0.5"
             >
               Email me
-            </a>
-            <a
-              href="/hire"
-              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
-            >
-              Freelance
-            </a>
-            <a
-              href="https://github.com/nuxdie"
-              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://blog.tsatsin.com/"
-              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
-            >
-              Blog
-            </a>
-            <a
-              href="https://artempodcast.com/"
-              className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
-            >
-              Podcast
             </a>
           </div>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-2">
-          {capabilities.map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-zinc-800 bg-zinc-900/60 px-5 py-4 text-sm text-zinc-300"
+        <figure className="relative mx-auto mt-10 w-full max-w-[400px] md:mt-0">
+          <Mochi />
+          <div className="rotate-[2deg] rounded-[28px] border-2 border-ink bg-sky p-3 shadow-[8px_8px_0_#14202B]">
+            <img
+              src="/artem.jpg"
+              alt="Artem Tsatsin, smiling, in a tie-dye T-shirt"
+              width="720"
+              height="720"
+              className="aspect-square w-full rounded-[18px] object-cover"
+            />
+          </div>
+          <figcaption className="mt-6 text-center text-sm text-slate">
+            Me, mid-sentence. Probably explaining something.
+          </figcaption>
+        </figure>
+      </section>
+
+      {/* What I'd do for you. */}
+      <section className="border-y-2 border-ink bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+          <h2 className="max-w-2xl font-display text-4xl font-extrabold tracking-[-0.025em] md:text-5xl">
+            Where I&apos;d be useful
+          </h2>
+          <dl className="mt-12 grid gap-x-14 gap-y-10 md:grid-cols-2">
+            {roles.map((r) => (
+              <div key={r.title} className="border-l-4 border-sky pl-5">
+                <dt className="font-display text-2xl font-bold">{r.title}</dt>
+                <dd className="mt-2 max-w-md leading-7 text-slate">{r.note}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Mochi gets the spotlight; the rest is a tidy list. */}
+      <section className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+        <h2 className="font-display text-4xl font-extrabold tracking-[-0.025em] md:text-5xl">Things I&apos;ve built</h2>
+
+        <article className="mt-12 grid gap-8 rounded-[32px] border-2 border-ink bg-pig/25 p-8 md:grid-cols-[auto_1fr] md:items-center md:p-12">
+          <svg viewBox="0 0 12 10" width="132" height="110" shapeRendering="crispEdges" aria-hidden="true">
+            {[
+              ".dd......dd.",
+              ".dpp....ppd.",
+              ".pppppppppp.",
+              "pppppppppppp",
+              "ppkwppppkwpp",
+              "ppkkppppkkpp",
+              "pppddddddppp",
+              "pppdkddkdppp",
+              "pppddddddppp",
+              "pppppppppppp",
+            ].flatMap((row, y) =>
+              [...row].map((c, x) =>
+                c === "." ? null : (
+                  <rect
+                    key={`${x}-${y}`}
+                    x={x}
+                    y={y}
+                    width="1"
+                    height="1"
+                    fill={{ p: "#F29BB0", d: "#C9667F", k: "#14202B", w: "#FFFFFF" }[c]}
+                  />
+                )
+              )
+            )}
+          </svg>
+          <div>
+            <h3 className="font-display text-3xl font-extrabold tracking-[-0.02em]">Mochi</h3>
+            <p className="mt-3 max-w-2xl text-lg leading-8">
+              A small 3D pixel pig that lives on my desktop, with a Claude Code agent for a brain. It reads my mail,
+              calendar and chats through narrow tools, keeps track of what I&apos;ve promised people, and does nothing
+              in the world until I say yes. It&apos;s how I learn, hands-on, what an agent should and shouldn&apos;t
+              do on its own. Also it hops when you pet it.
+            </p>
+            <a
+              href="https://github.com/nuxdie/xpet-mochi"
+              className="mt-5 inline-block font-display font-bold text-ink underline decoration-pigdeep decoration-[3px] underline-offset-4 hover:decoration-ink"
             >
-              {item}
+              Code on GitHub
+            </a>
+          </div>
+        </article>
+
+        <ul className="mt-14 divide-y-2 divide-ink/10 border-y-2 border-ink/10">
+          {projects.map((p) => (
+            <li key={p.name} className="grid gap-2 py-6 md:grid-cols-[14rem_1fr_auto] md:items-baseline md:gap-8">
+              <h3 className="font-display text-xl font-bold">{p.name}</h3>
+              <p className="max-w-xl leading-7 text-slate">{p.note}</p>
+              <a
+                href={p.href}
+                className="font-semibold text-skydeep underline decoration-2 underline-offset-4 hover:text-ink"
+              >
+                {p.link}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* The short version of the CV. A real sequence, so a real timeline. */}
+      <section className="bg-ink text-chalk">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+          <h2 className="font-display text-4xl font-extrabold tracking-[-0.025em] md:text-5xl">The short version</h2>
+          <ol className="mt-12 space-y-10 border-l-2 border-sky/60 pl-8">
+            {timeline.map((t) => (
+              <li key={t.years} className="relative">
+                <span
+                  className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-[4px] border-2 border-ink bg-sky"
+                  aria-hidden="true"
+                />
+                <p className="text-sm font-semibold text-sky">{t.years}</p>
+                <h3 className="mt-1 font-display text-2xl font-bold">{t.what}</h3>
+                <p className="mt-2 max-w-2xl leading-7 text-chalk/75">{t.note}</p>
+              </li>
+            ))}
+          </ol>
+          <a
+            href="/artem-tsatsin-cv.pdf"
+            className="mt-12 inline-block font-display font-bold text-sky underline decoration-2 underline-offset-4 hover:text-white"
+          >
+            The long version, as a PDF
+          </a>
+        </div>
+      </section>
+
+      {/* How I work, in three sentences I actually believe. */}
+      <section className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+        <h2 className="font-display text-4xl font-extrabold tracking-[-0.025em] md:text-5xl">How I work</h2>
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          {beliefs.map((b) => (
+            <div key={b.title}>
+              <h3 className="font-display text-2xl font-bold">{b.title}</h3>
+              <p className="mt-3 leading-7 text-slate">{b.note}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-zinc-900 bg-zinc-950">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
-          <div className="max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.22em] text-zinc-500">Experience</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Fifteen years of shipping for the web.
-            </h2>
-            <p className="mt-4 text-base leading-7 text-zinc-400 md:text-lg">
-              Product teams at scale, managing engineers, and since 2023 building with AI agents every day.
-            </p>
-          </div>
-
-          <ol className="mt-12 space-y-4">
-            {experience.map((item) => (
-              <li
-                key={item.org}
-                className="grid gap-2 rounded-2xl border border-zinc-800 bg-zinc-900/60 px-5 py-4 md:grid-cols-[9rem_1fr] md:gap-6"
-              >
-                <span className="text-sm text-zinc-500">{item.period}</span>
-                <div>
-                  <p className="text-base font-medium text-white">
-                    {item.role} <span className="font-normal text-zinc-400">· {item.org}</span>
-                  </p>
-                  <p className="mt-1 text-sm leading-7 text-zinc-300">{item.note}</p>
-                </div>
-              </li>
+      {/* Say hi. */}
+      <footer className="border-t-2 border-ink bg-sky">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+          <h2 className="font-display text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold leading-none tracking-[-0.035em]">
+            Got a hard, fuzzy problem?
+          </h2>
+          <p className="mt-5 max-w-xl text-lg leading-8">
+            Those are my favourite kind. Tell me about the team, the role, or the thing that won&apos;t work.
+          </p>
+          <a
+            href="mailto:artem@tsatsin.com"
+            className="mt-8 inline-block break-all font-display text-3xl font-extrabold underline decoration-[4px] underline-offset-[6px] hover:decoration-pigdeep md:text-5xl"
+          >
+            artem@tsatsin.com
+          </a>
+          <nav aria-label="Elsewhere" className="mt-12 flex flex-wrap gap-x-6 gap-y-3">
+            {elsewhere.map((e) => (
+              <a key={e.label} href={e.href} className="font-semibold underline decoration-2 underline-offset-4 hover:text-skydeep">
+                {e.label}
+              </a>
             ))}
-          </ol>
+          </nav>
+          <p className="mt-10 text-sm text-ink/70">
+            Amsterdam. Dutch citizen, no sponsorship needed. Russian and English; my Dutch is getting there.
+          </p>
         </div>
-      </section>
-
-      <section className="border-t border-zinc-900 bg-zinc-950">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
-          <div className="max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.22em] text-zinc-500">Selected work</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Public projects that show how I build.
-            </h2>
-            <p className="mt-4 text-base leading-7 text-zinc-400 md:text-lg">
-              A mix of live tools, self-hosted systems, and reusable developer utilities.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {projects.map((project) => (
-              <article
-                key={project.name}
-                className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-xl font-medium text-white">{project.name}</h3>
-                  <a
-                    href={project.href}
-                    className="text-sm text-zinc-400 transition hover:text-zinc-200"
-                  >
-                    {project.linkLabel || "GitHub ↗"}
-                  </a>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-zinc-300">{project.description}</p>
-                {project.live ? (
-                  <div className="mt-5">
-                    <a
-                      href={project.live}
-                      className="inline-flex rounded-full border border-zinc-700 px-4 py-2 text-sm text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800"
-                    >
-                      Open live ↗
-                    </a>
-                  </div>
-                ) : null}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-zinc-900 bg-zinc-950">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
-          <div className="max-w-3xl rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-black p-8 md:p-10">
-            <p className="text-sm uppercase tracking-[0.22em] text-zinc-500">Working style</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              Less strategy theater, more useful software.
-            </h2>
-            <p className="mt-5 text-base leading-8 text-zinc-300 md:text-lg">
-              I work best on practical, technically ambiguous problems: internal tools, prototypes,
-              searchable systems, workflow automation, and product ideas that need to become real fast.
-            </p>
-            <p className="mt-4 text-base leading-8 text-zinc-400 md:text-lg">
-              Hiring? <a href="/artem-tsatsin-cv.pdf" className="text-white underline underline-offset-4 hover:text-zinc-300">Here is my CV</a>, or write to{" "}
-              <a href="mailto:artem@tsatsin.com" className="text-white underline underline-offset-4 hover:text-zinc-300">artem@tsatsin.com</a>.
-              For a short freelance project, the offer is <a href="/hire" className="text-white underline underline-offset-4 hover:text-zinc-300">here</a>.
-            </p>
-          </div>
-        </div>
-      </section>
+      </footer>
     </main>
   );
 }
